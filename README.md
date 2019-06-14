@@ -19,3 +19,6 @@ WEBSITE IS BORN!
     - Background
     - Index page photo
     - Picture for each project
+
+Note for Chris: This project had many other commits before being copied as a standalone repository.
+To check all previous commits see - https://github.com/Sidebail/Node.js_College_Course/commits/Portfolio_Assignment1
