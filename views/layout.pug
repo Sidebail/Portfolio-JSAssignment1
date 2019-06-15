@@ -17,27 +17,34 @@ html
           left: 0;
           top: 0;
           width: 100%;
+          height: 5%;
           background-color: black;
           color: white;
+          
         }
         #head_right {
-          text-align: right;
+          float: right;
+          text-align: center;
+        }
+        #head_left {
+          text-align: center;          
+          margin-left: 100px;
+          
         }
         #content{
-          top: 100;
-          color: red;
+          margin-top: 100px;
+          
           text-align: center;
         }
     link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
   body
     block header
       #header
-         a(href="/" class='button') Home
-         a     -    
-         a(id='head_right') About me (SUBJECT TO CHANGE)
-         a     -    
+         a(href="/" id='head_left') Home  
+         a(id='head_right') About me (SUBJECT TO CHANGE)   
          a(id='head_right') Contacts (SUBJECT TO CHANGE)
-    block content
+    #content
+     block content
     block footer
       #footer
         p Vladimir Vatsurin's portfolio  - 2019 
