@@ -2,15 +2,41 @@ doctype html
 html
   head
     title= title
-     link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
+    style.
+        #footer {
+          position: fixed;
+          left: 0;
+          bottom: 0;
+          width: 100%;
+          background-color: black;
+          color: white;
+          text-align: center;  
+        }
+        #header{
+          position: fixed;
+          left: 0;
+          top: 0;
+          width: 100%;
+          background-color: black;
+          color: white;
+        }
+        #head_right {
+          text-align: right;
+        }
+        #content{
+          top: 100;
+          color: red;
+          text-align: center;
+        }
+    link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
   body
     block header
       #header
-         a(href="/") Home
+         a(href="/" class='button') Home
          a     -    
-         a About me (SUBJECT TO CHANGE)
+         a(id='head_right') About me (SUBJECT TO CHANGE)
          a     -    
-         a Contacts (SUBJECT TO CHANGE)
+         a(id='head_right') Contacts (SUBJECT TO CHANGE)
     block content
     block footer
       #footer
