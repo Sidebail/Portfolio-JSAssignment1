@@ -5,8 +5,16 @@ block content
 
   a(href="/projects/new") Create Project
 
-  ul
-    each project in projects
-      li
-        a(href=`/projects/${project._id}`)= project.name
+  table(style = 'float: none; margin: 0 auto; border-collapse: separate; border-spacing: 70px;')
+    tbody(style = 'border: 10px;')
+      each chunk in listChunks
+        tr
+          each project in chunk
+            td
+              div(class='card' style='width: 25rem;')
+                img(class='card-img-top' src=`${project.picture}` alt=`${project.name}`)
+                div(class='card-body')
+                  a(href=`/projects/${project._id}` class = "btn btn-primary")= project.name
+
+        
   

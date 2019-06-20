@@ -4,10 +4,9 @@ block content
   h1= project.title
 
   form(method="POST")
-    input(name="name" value=project.title placeholder="title of project")
-    input(name="grade" value=project.grade type="number")
-    input(name="class.title" value=project.class.title placeholder="Class Title")
-    input(name="class.courseCode" value=project.class.courseCode placeholder="CourseCode")
-    input(name="class.teacher" value=project.class.teacher placeholder="Teacher")
+    input(name="name" placeholder="Name of project")
+    input(name="description" placeholder="Description")
+    input(name="state" placeholder="Current State")
+    input(name="picture" placeholder="Link to a picture")
 
-    button(type="submit") Save Project
+    button(type="submit") Create Project

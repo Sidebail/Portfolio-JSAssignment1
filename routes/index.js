@@ -4,7 +4,15 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  res.render('index', { title: 'Vladimir Vatsurin' });
+});
+
+router.get('/contacts', function(req, res, next) {
+  res.render('contacts', { title: 'Contacts' });
+});
+
+router.get('/about', function(req, res, next) {
+  res.render('about', { title: 'About me' });
 });
 
 // Render create form (GET)

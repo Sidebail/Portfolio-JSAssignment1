@@ -33,7 +33,14 @@ exports.findProjectById = viewPath => async (req, res) => {
 // Find all Projects
 exports.findAllProjects = async (req, res) => {
   const projects = await Project.find();
-  res.render('projects/list', { projects });
+  
+  var listChunks = [];
+
+  for (var i = 0; i < Math.ceil(projects.length / 3); i++) {
+    listChunks.push(projects.slice(3 * i, 3 * (i + 1)));
+  }
+
+  res.render('projects/list', { listChunks });
 };
 
 // Updating

@@ -1,12 +1,14 @@
 extends ../layout
 
 block content
-  ul
-    li: a(href="/projects") Go Back
-    li: a(href=`/projects/${project._id}/edit`) Edit Project
-    li: a(href=`/projects/${project._id}/delete`) Delete Project
-  h1= project.title
-  h2 #{project.class.title} - #{project.class.courseCode}
+  div(class='card text-md-center' style='width: 60%; float: none;')
+    img(class='card-img-top' src=`${project.picture}` alt=`${project.title}`)
+    div(class='card-body')
+      h1=`${project.name}`
+      h2=`${project.description}`
+      p=`${project.state}`
 
-  h4= project.grade
-  h5= project.class.teacher
+  
+  a(href="/projects" class="btn btn-primary") Go Back
+  a(href=`/projects/${project._id}/edit` class="btn btn-primary") Edit Project
+  a(href=`/projects/${project._id}/delete` class="btn btn-primary") Delete Project

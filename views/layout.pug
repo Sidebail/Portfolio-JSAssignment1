@@ -3,8 +3,11 @@ html
   head
     title= title
     style.
+        body{
+          height: 100vh;
+        }
         #footer {
-          position: fixed;
+          margin-top: 100px;
           left: 0;
           bottom: 0;
           width: 100%;
@@ -14,6 +17,7 @@ html
         }
         #header{
           position: fixed;
+          z-index: 10;
           left: 0;
           top: 0;
           width: 100%;
@@ -26,30 +30,40 @@ html
           float: right;
           
           transform: translateY(25%);
-          margin-right: 10px;
+          margin-right: 100px;
+          color: white;
         }
         #head_left {         
           margin-left: 100px;
           color: white;
           
         }
-        #content{
-          margin-top: 100px;
-          
+        #content{   
+          margin-top: 5%;       
           text-align: center;
+        }
+        .card {
+        margin: 0 auto; /* Added */
+        float: none; /* Added */
+        margin-bottom: 10px; /* Added */
+        }
+        #left_text{
+          margin-left: 2%;
+          text-align: left;
         }
     link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
   body
     block header
       #header
          a(href="/" id='head_left') Home  
-         a(id='head_right') About me (SUBJECT TO CHANGE)   
-         a(id='head_right') Contacts (SUBJECT TO CHANGE)
-    #content
-     block content
-    block footer
-      #footer
-        p Vladimir Vatsurin's portfolio  - 2019 
-        a(href="https://www.linkedin.com/in/vladimir-vatsurin/") Me in LinkedIn
-        a   -   
-        a(href="https://vk.com/sidebail") Me in VKontakte
+         a(href="/about" id='head_right') About me   
+         a(href="/contacts" id='head_right') Contacts 
+    .d-flex.flex-column
+      #content.flex-grow-1
+        block content
+      block footer
+        #footer
+          p Vladimir Vatsurin's portfolio  - 2019 
+          a(href="https://www.linkedin.com/in/vladimir-vatsurin/") Me in LinkedIn
+          a   -   
+          a(href="https://vk.com/sidebail") Me in VKontakte

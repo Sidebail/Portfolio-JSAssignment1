@@ -10,14 +10,20 @@ const classSchema = new Schema({
 const projectSchema = new Schema({
     name: {
         type: String,
-        required: true,
+        required: true
     },
-    grade: {
-        type: Number,
-        min: 0,
-        max: 100
+    description: {
+        type: String,
+        required: true
     },
-    class: classSchema
+    state: {
+        type: String,
+        required: true
+    },
+    picture: {
+        type: String,
+        required: true
+    }
 });
 
 const Project = mongoose.model('Project', projectSchema);
