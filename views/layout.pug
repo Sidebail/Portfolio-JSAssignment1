@@ -53,7 +53,19 @@ html
         }
     link(rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous")
     script(type="text/javascript" src="https://cdn.emailjs.com/sdk/2.3.2/email.min.js")
-    script(type="text/javascript"(function(){emailjs.init("user_J2e9n5NQv1OsRYd8zXklA");})();)
+    script(type='text/javascript').
+      (function(){
+      emailjs.init("user_J2e9n5NQv1OsRYd8zXklA");
+      })();
+    script(type='text/javascript').
+      window.onload = function() {
+      document.getElementById('contact-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      this.contact_number.value = Math.random() * 100000 | 0;
+      emailjs.sendForm('contact_service', 'contact_template', this);
+      });
+      }
+  
   body
     block header
       #header
