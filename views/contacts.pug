@@ -15,3 +15,13 @@ block content
      img(class='card-img-top' src='https://getvideo.at/static/images/howto/vk.com/vk.com_home.6ea31507f6bf.png' alt='VK!!!!')
      div(class='card-body')
       a(href="https://vk.com/sidebail" class="btn btn-primary") Add me in VKontakte!
+    
+    form#contact-form
+     input(type='hidden', name='contact_number')
+     label Name
+     input(type='text', name='user_name')
+     label Email
+     input(type='email', name='user_email')
+     label Message
+     textarea(name='contact')
+     input(type='submit', value='Send')
