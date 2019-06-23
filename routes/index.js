@@ -22,6 +22,18 @@ const requireAuth = (req, res, next) => {
 };
 router.post('*', requireAuth); // Protect ALL POST routes
 
+router.get('/projects/new', requireAuth, (req, res) =>
+  res.render('projects/create')
+);
+
+// List all Projects (GET)
+router.get('/projects', projects.findAllProjects);
+// List a specific Project (GET)
+router.get('/projects/:id', projects.findProjectById('projects/details'));
+
+// Require auth on every route below this router
+router.use(requireAuth);
+
 // Render create form (GET)
 router.get('/projects/new', (req, res) => res.render('projects/create'));
 // Handle create form (POST)
@@ -34,9 +46,6 @@ router.post('/projects/:id/edit', projects.updateProjectById);
 // Delete a Project (GET)
 router.get('/projects/:id/delete', projects.deleteProjectById);
 
-// List all Projects (GET)
-router.get('/projects', projects.findAllProjects);
-// List a specific Project (GET)
-router.get('/projects/:id', projects.findProjectById('projects/details'));
+
 
 module.exports = router;
