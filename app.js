@@ -1,9 +1,14 @@
+    
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+const session = require('express-session');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 const mongoose = require('mongoose');
+const User = require('./models/user');
 mongoose.connect(`mongodb+srv://test:test123@jscoursecluster-eyi2w.mongodb.net/test?retryWrites=true&w=majority`, {useNewUrlParser: true});
 
 var db = mongoose.connection;
@@ -12,6 +17,7 @@ db.once('open', () => console.log('Connected to Mongodb'));
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var authRouter = require('./routes/auth');
 
 var app = express();
 
@@ -25,6 +31,25 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(
+  session({
+    secret: 'kjnhfwkejsdhfjchw3hruy23iyriuwyefkcnskdbchhbf3uhfbubjnjn',
+    resave: false,
+    saveUninitialized: true
+  })
+);
+
+app.use(passport.initialize()); // Initiaize Passport first
+app.use(passport.session()); // Use passport with session
+
+// use static authenticate method of model in LocalStrategy
+passport.use(new LocalStrategy(User.authenticate()));
+
+// use static serialize and deserialize of model for passport session support
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
+
+app.use('/', authRouter);
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 

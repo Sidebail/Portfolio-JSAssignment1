@@ -1,9 +1,10 @@
 extends ../layout
 
 block content
-  h1 All Projects
 
-  a(href="/projects/new") Create Project
+  h1 All Projects
+  if isAuthenticated
+    a(href="/projects/new") Create Project
 
   table(style = 'float: none; margin: 0 auto; border-collapse: separate; border-spacing: 70px;')
     tbody(style = 'border: 10px;')

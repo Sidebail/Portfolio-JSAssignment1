@@ -15,6 +15,13 @@ router.get('/about', function(req, res, next) {
   res.render('about', { title: 'About me' });
 });
 
+const requireAuth = (req, res, next) => {
+  if (req.isAuthenticated()) return next();
+
+  return res.redirect('/login');
+};
+router.post('*', requireAuth); // Protect ALL POST routes
+
 // Render create form (GET)
 router.get('/projects/new', (req, res) => res.render('projects/create'));
 // Handle create form (POST)
